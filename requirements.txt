@@ -1,0 +1,6 @@
+# 検証済み環境: Python 3.14 / 下記バージョンで動作確認
+pandas>=2.0
+numpy>=1.24
+scipy>=1.10
+matplotlib>=3.7
+openpyxl>=3.1
