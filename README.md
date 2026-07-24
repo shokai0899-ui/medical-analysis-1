@@ -64,6 +64,17 @@ python src/03_structural_change.py
 - パスは `src/common.py` がリポジトリ位置から相対解決するため、**どこから実行してもよい**。
 - 日本語フォントは Windows / macOS / Linux の代表的な CJK フォントを自動探索する（`common.setup_japanese_font`）。
 
+**ノートブックで通しで読む**（実行結果を埋め込み済み・GitHub上でそのまま閲覧可）:
+
+- [`analysis.ipynb`](analysis.ipynb) — 分析ロジックと結果を通しで確認できる。再実行する場合は `jupyter nbconvert --to notebook --execute --inplace analysis.ipynb`。
+
+**自動再現（CI）**: `push` のたびに GitHub Actions がクリーン環境（Linux＋Noto CJK フォント）で全分析を実行し、
+再生成した図を成果物としてアップロードする（[`.github/workflows/reproduce.yml`](.github/workflows/reproduce.yml)）。
+
+> 補足: push 後、リポジトリの Actions タブに緑チェックが付けば再現成功。README に CI バッジを付けるには、
+> リポジトリ作成後に次を追記する（`<USER>` は自分のGitHubユーザー名）:
+> `![CI](https://github.com/<USER>/adverse-event-report-analysis/actions/workflows/reproduce.yml/badge.svg)`
+
 ---
 
 ## 分析1: Total Reports と Expedited
