@@ -29,11 +29,14 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: Run all analyses
+      - name: Run all analyses (individual scripts)
         run: |
           python src/01_total_vs_expedited.py
           python src/02_expedited_vs_nonexpedited.py
           python src/03_structural_change.py
+
+      - name: Run end-to-end script
+        run: python analysis.py
 
       - name: Upload regenerated figures
         uses: actions/upload-artifact@v4

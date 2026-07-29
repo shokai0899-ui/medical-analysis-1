@@ -55,7 +55,10 @@
 # 1. 依存関係（仮想環境推奨）
 python -m pip install -r requirements.txt
 
-# 2. 各分析を実行（figures/ に PNG、data/processed/ に整形CSV を生成）
+# 2. 通しで実行（分析1〜3をまとめて実行し、figures/ に PNG、data/processed/ に整形CSV を生成）
+python analysis.py
+
+# 個別に実行することもできる
 python src/01_total_vs_expedited.py
 python src/02_expedited_vs_nonexpedited.py
 python src/03_structural_change.py
@@ -64,9 +67,10 @@ python src/03_structural_change.py
 - パスは `src/common.py` がリポジトリ位置から相対解決するため、**どこから実行してもよい**。
 - 日本語フォントは Windows / macOS / Linux の代表的な CJK フォントを自動探索する（`common.setup_japanese_font`）。
 
-**ノートブックで通しで読む**（実行結果を埋め込み済み・GitHub上でそのまま閲覧可）:
+**通しで読む**:
 
-- [`analysis.ipynb`](analysis.ipynb) — 分析ロジックと結果を通しで確認できる。再実行する場合は `jupyter nbconvert --to notebook --execute --inplace analysis.ipynb`。
+- [`analysis.py`](analysis.py) — 各分析の狙いと考察を挟みながら分析1〜3を順に実行する入口。分析の流れを追うならここから読む。
+- 統計量の計算と作図の実装は [`src/`](src) にある（`common.py` ＝ 共通処理、`01`〜`03` ＝ 各分析）。
 
 **自動再現（CI）**: `push` のたびに GitHub Actions がクリーン環境（Linux＋Noto CJK フォント）で全分析を実行し、
 再生成した図を成果物としてアップロードする（[`.github/workflows/reproduce.yml`](.github/workflows/reproduce.yml)）。
