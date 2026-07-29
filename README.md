@@ -1,5 +1,7 @@
 # FDA 有害事象報告データの相関・構造変化分析
 
+[![CI](https://github.com/shokai0899-ui/medical-analysis-1/actions/workflows/reproduce.yml/badge.svg)](https://github.com/shokai0899-ui/medical-analysis-1/actions/workflows/reproduce.yml)
+
 米国 FDA の有害事象報告システム（FAERS）に寄せられた年次report件数を用い、
 **report種別（迅速 / 非迅速など）の相関**と、その関係が**いつ・どう変化したか**を分析する。
 相関の強さそのものより、「相関≠因果」を踏まえた**構造変化の特定**に主眼を置く。
@@ -75,9 +77,7 @@ python src/03_structural_change.py
 **自動再現（CI）**: `push` のたびに GitHub Actions がクリーン環境（Linux＋Noto CJK フォント）で全分析を実行し、
 再生成した図を成果物としてアップロードする（[`.github/workflows/reproduce.yml`](.github/workflows/reproduce.yml)）。
 
-> 補足: push 後、リポジトリの Actions タブに緑チェックが付けば再現成功。README に CI バッジを付けるには、
-> リポジトリ作成後に次を追記する（`<USER>` は自分のGitHubユーザー名）:
-> `![CI](https://github.com/<USER>/adverse-event-report-analysis/actions/workflows/reproduce.yml/badge.svg)`
+> 実行状況は README 冒頭の CI バッジ、または[リポジトリの Actions タブ](https://github.com/shokai0899-ui/medical-analysis-1/actions/workflows/reproduce.yml)で確認できる。
 
 ---
 
